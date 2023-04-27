@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Superheros Powers</title>
-  <meta charset="UTF-8">
-</head>
-<body>
-<h1>Create SuperPower</h1>
+@extends('layouts.master') <!---->
 
-<form action="{{ route('superpowers.store') }}" method="post">
+@section('content') <!--INCLUIR TODO LO QUE HAY EN section-->
 
-@csrf
+    <form action="{{ route('superpowers.store') }}" method="post">
+        @csrf
 
-<label for="name">Name</label><br><br>
-<input type="text" name="name">
-<br><br>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control">
+        </div>
 
-<label for="description">Desciption</label><br>
-<textarea name="description" cols="50" rows="5"></textarea>
-<br><br>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" cols="50" rows="5" class="form-control"></textarea>
+        </div>
 
-<button type="submit">Create!!</button>
-</form>
+        <div class="form-group text-center">
+          <br>
+            <button type="submit" class="btn btn-success btn-lg mx-auto d-block">Create!!</button>
+        </div>
+    </form>
+</div>
+
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+
 </body>
 </html>
-
-
+@endsection

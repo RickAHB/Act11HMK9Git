@@ -1,28 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Superheros Powers</title>
-  <meta charset="UTF-8">
-</head>
-<body>
-<h1>Edit SuperPower</h1>
+@extends('layouts.master') <!---->
+@section('content') <!--INCLUIR TODO LO QUE HAY EN section-->
 
-<form action="{{ route('superpowers.update', $superpowers->id) }}" method="post">
-@method('put')
-@csrf
+    <div class="container mt-5">
+    <h1>Edit SuperPower</h1>
 
-<label for="name">Name</label><br><br>
-<input type="text" name="name" value="{{$superpowers->name}}">
-<br><br>
+    <form action="{{ route('superpowers.update', $superpowers->id) }}" method="post">
+        @method('put')
+        @csrf
 
-<label for="description">Desciption</label><br>
-<textarea name="description" cols="50" rows="5">{{$superpowers->description}}</textarea>
-<br><br>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="{{$superpowers->name}}" class="form-control">
+        </div>
 
-<button type="submit">Edit Superpower!!</button>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" cols="50" rows="5" class="form-control">{{$superpowers->description}}</textarea>
+        </div>
 
-</form>
+        <div class="form-group text-center">
+          <br>
+            <button type="submit" class="btn btn-primary btn-lg mx-auto d-block">Edit Superpower!!</button>
+        </div>
+    </form>
+</div>
+
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+
 </body>
 </html>
 
-
+@endsection
