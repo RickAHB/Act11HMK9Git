@@ -1,3 +1,7 @@
+<x-app-layout>
+    
+
+
 @include('shared.head')
 
 
@@ -16,5 +20,7 @@
 @yield('buttons')
 @yield('content')
 </div>
+</x-app-layout>
+
 
 @include('shared.footer')
